@@ -8,17 +8,12 @@ import {
   SheetHeader,
   SheetTitle,
 } from "../ui/sheet";
+import type { Item } from "~/app/page";
 
 interface TaskProps {
-  task: {
-    id: number;
-    name: string;
-  };
+  task: Item;
   isCompletedCard: boolean;
-  handleChange: (
-    task: { id: number; name: string },
-    isCompleted: boolean,
-  ) => void;
+  handleChange: (task: Item, isCompleted: boolean) => void;
 }
 
 export default function Task({
@@ -37,6 +32,7 @@ export default function Task({
   preview(previewRef);
 
   const [name, setName] = useState(task.name);
+  const [notes, setNotes] = useState(task.notes);
 
   return (
     <Sheet>
@@ -79,6 +75,15 @@ export default function Task({
             </div>
           </SheetTitle>
         </SheetHeader>
+        <div className="mt-8 flex flex-col gap-4 text-sm text-white">
+          <textarea
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+            placeholder="Task notes..."
+            rows={4}
+            className="mt-1 w-full resize-none rounded-lg bg-transparent text-sm focus:ring-indigo-500"
+          />
+        </div>
       </SheetContent>
     </Sheet>
   );

@@ -2,7 +2,7 @@ import type { Dispatch, SetStateAction } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Card from "./Card";
-import type { List } from "~/app/page";
+import type { Item, List } from "~/app/page";
 
 interface GridProps {
   lists: List[];
@@ -10,10 +10,7 @@ interface GridProps {
 }
 
 export default function Grid({ lists, setLists }: GridProps) {
-  function handleDropTask(
-    droppedTask: { id: number; name: string },
-    targetCardTitle: string,
-  ) {
+  function handleDropTask(droppedTask: Item, targetCardTitle: string) {
     setLists((prevLists) => {
       // Remove task from its current card
       const updatedCards = prevLists.map((card) => {
@@ -39,10 +36,7 @@ export default function Grid({ lists, setLists }: GridProps) {
     });
   }
 
-  function handleChange(
-    updatedTask: { id: number; name: string },
-    isCompleted: boolean,
-  ) {
+  function handleChange(updatedTask: Item, isCompleted: boolean) {
     setLists((prevCards) => {
       // Remove task from its current card
       const updatedLists = prevCards.map((card) => {

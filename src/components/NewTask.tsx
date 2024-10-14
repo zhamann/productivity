@@ -21,7 +21,10 @@ export default function NewTask({ listTitles, setLists }: NewTaskProps) {
       );
       const updatedLists = prevState.map((list) => {
         return list.title === listTitle
-          ? { ...list, tasks: [...list.tasks, { id: maxId + 1, name }] }
+          ? {
+              ...list,
+              tasks: [...list.tasks, { id: maxId + 1, name, notes: "" }],
+            }
           : list;
       });
       return updatedLists;

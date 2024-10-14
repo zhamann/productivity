@@ -2,21 +2,13 @@ import { useDrop } from "react-dnd";
 import Task from "./Task";
 import { useRef, useState } from "react";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi2";
+import type { Item } from "~/app/page";
 
 interface CardProps {
   title: string;
-  tasks: {
-    id: number;
-    name: string;
-  }[];
-  onDropTask: (
-    task: { id: number; name: string },
-    targetCardTitle: string,
-  ) => void;
-  handleChange: (
-    task: { id: number; name: string },
-    isCompleted: boolean,
-  ) => void;
+  tasks: Item[];
+  onDropTask: (task: Item, targetCardTitle: string) => void;
+  handleChange: (task: Item, isCompleted: boolean) => void;
 }
 
 export default function Card({
@@ -31,7 +23,7 @@ export default function Card({
   const ref = useRef<HTMLDivElement>(null);
   const [, drop] = useDrop({
     accept: "TASK",
-    drop: (item: { id: number; name: string }) => {
+    drop: (item: Item) => {
       onDropTask(item, title);
     },
   });

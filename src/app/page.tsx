@@ -22,51 +22,90 @@ export default function Home() {
   );
 }
 
+export interface Item {
+  id: number;
+  name: string;
+  notes: string;
+}
+
 export interface List {
   title: string;
-  tasks: {
-    id: number;
-    name: string;
-  }[];
+  tasks: Item[];
 }
 
 const initialLists: List[] = [
   {
     title: "In Progress",
     tasks: [
-      { id: 0, name: "Update API documentation for Fitness app" },
-      { id: 1, name: "Implement user authentication for Finance app" },
-      { id: 2, name: "Refactor Redux state management for Dashboard" },
-      { id: 3, name: "Fix UI bugs on profile settings page" },
-      { id: 4, name: "Optimize database queries for reporting module" },
+      { id: 0, name: "Update API documentation for Fitness app", notes: "" },
+      {
+        id: 1,
+        name: "Implement user authentication for Finance app",
+        notes: "",
+      },
+      {
+        id: 2,
+        name: "Refactor Redux state management for Dashboard",
+        notes: "",
+      },
+      { id: 3, name: "Fix UI bugs on profile settings page", notes: "" },
+      {
+        id: 4,
+        name: "Optimize database queries for reporting module",
+        notes: "",
+      },
     ],
   },
   {
     title: "Upcoming",
     tasks: [
-      { id: 5, name: "Add dark mode support for Calendar app" },
-      { id: 6, name: "Migrate project to TypeScript" },
-      { id: 7, name: "Integrate third-party payment gateway" },
-      { id: 8, name: "Set up unit tests for Authentication module" },
-      { id: 9, name: "Develop notification system for Task Manager" },
+      { id: 5, name: "Add dark mode support for Calendar app", notes: "" },
+      { id: 6, name: "Migrate project to TypeScript", notes: "" },
+      { id: 7, name: "Integrate third-party payment gateway", notes: "" },
+      { id: 8, name: "Set up unit tests for Authentication module", notes: "" },
+      {
+        id: 9,
+        name: "Develop notification system for Task Manager",
+        notes: "",
+      },
     ],
   },
   {
     title: "Needs Reviewed",
     tasks: [
-      { id: 10, name: "Review code for new user registration flow" },
-      { id: 11, name: "Check performance optimizations in Billing app" },
-      { id: 12, name: "Test security fixes for Admin dashboard" },
-      { id: 13, name: "Evaluate design patterns in new microservices" },
+      { id: 10, name: "Review code for new user registration flow", notes: "" },
+      {
+        id: 11,
+        name: "Check performance optimizations in Billing app",
+        notes: "",
+      },
+      { id: 12, name: "Test security fixes for Admin dashboard", notes: "" },
+      {
+        id: 13,
+        name: "Evaluate design patterns in new microservices",
+        notes: "",
+      },
     ],
   },
   {
     title: "Blocked",
     tasks: [
-      { id: 14, name: "Fix deployment issues on production server" },
-      { id: 15, name: "Resolve CORS issues for client-side API calls" },
-      { id: 16, name: "Investigate failing integration tests in CI pipeline" },
-      { id: 17, name: "Get access to project repository from DevOps team" },
+      { id: 14, name: "Fix deployment issues on production server", notes: "" },
+      {
+        id: 15,
+        name: "Resolve CORS issues for client-side API calls",
+        notes: "",
+      },
+      {
+        id: 16,
+        name: "Investigate failing integration tests in CI pipeline",
+        notes: "",
+      },
+      {
+        id: 17,
+        name: "Get access to project repository from DevOps team",
+        notes: "",
+      },
     ],
   },
   {
