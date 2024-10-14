@@ -1,5 +1,5 @@
 import { type Dispatch, type SetStateAction, useRef, useState } from "react";
-import type { List } from "../page";
+import type { List } from "../app/page";
 
 interface NewTaskProps {
   listTitles: string[];

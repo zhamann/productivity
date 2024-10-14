@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Footer from "./_components/Footer";
-import Grid from "./_components/grid/Grid";
-import Header from "./_components/Header";
-import NewTask from "./_components/NewTask";
+import Footer from "../components/Footer";
+import Grid from "../components/grid/Grid";
+import Header from "../components/Header";
+import NewTask from "../components/NewTask";
 
 export default function Home() {
   const [lists, setLists] = useState(initialLists);
